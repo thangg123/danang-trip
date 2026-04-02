@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đà Nẵng – Hội An · 28–31/5/2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #f5f0e8;
+  --ocean: #1a6b8a;
+  --ocean-deep: #0d4f6b;
+  --sunset: #e8714a;
+  --sunset-glow: #f4a261;
+  --lantern: #d4a017;
+  --lantern-soft: #f5d76e;
+  --night: #1a1a2e;
+  --night-soft: #2d2d44;
+  --text: #2c2c2c;
+  --text-light: #6b6b6b;
+  --white: #ffffff;
+  --card-bg: rgba(255,255,255,0.92);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  color: var(--text);
+  background: var(--sand);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 40%, var(--sunset) 80%, var(--sunset-glow) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(244,162,97,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(26,107,138,0.4) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.hero-content { position: relative; z-index: 2; padding: 2rem; }
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  color: rgba(255,255,255,0.9);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  animation: fadeDown 1s ease;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  animation: fadeUp 1s ease 0.2s both;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--lantern-soft);
+}
+
+.hero-sub {
+  font-size: 1.15rem;
+  color: rgba(255,255,255,0.85);
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease 0.4s both;
+}
+
+.countdown {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+  animation: fadeUp 1s ease 0.6s both;
+}
+
+.countdown-item {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  min-width: 90px;
+}
+
+.countdown-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.countdown-label {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 0.3rem;
+}
+
+.hero-scroll {
+  animation: fadeUp 1s ease 0.8s both;
+}
+
+.hero-scroll a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s;
+}
+
+.hero-scroll a:hover { color: var(--white); }
+
+.scroll-arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+/* ===== NAV TABS ===== */
+.nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(245,240,232,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 0;
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  flex-shrink: 0;
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.nav-tab:hover { color: var(--ocean); }
+.nav-tab.active {
+  color: var(--ocean);
+  border-bottom-color: var(--sunset);
+  font-weight: 600;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
+
+.section.active { display: block; animation: fadeIn 0.4s ease; }
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-weight: 300;
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+/* ===== DAY SELECTOR ===== */
+.day-pills {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.day-pill {
+  padding: 0.7rem 1.3rem;
+  border-radius: 50px;
+  border: 2px solid var(--ocean);
+  background: transparent;
+  color: var(--ocean);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.day-pill:hover { background: var(--ocean); color: var(--white); }
+.day-pill.active { background: var(--ocean); color: var(--white); box-shadow: 0 4px 15px rgba(26,107,138,0.3); }
+
+/* ===== TIMELINE ===== */
+.timeline { position: relative; padding-left: 2.5rem; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--ocean), var(--sunset));
+  border-radius: 2px;
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 2rem;
+  animation: slideIn 0.5s ease both;
+}
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -2.15rem;
+  top: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sunset);
+  border: 3px solid var(--sand);
+  box-shadow: 0 0 0 3px var(--sunset);
+  z-index: 2;
+}
+
+.tl-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tl-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.tl-time {
+  display: inline-block;
+  background: linear-gradient(135deg, var(--ocean), var(--ocean-deep));
+  color: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.tl-place {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.tl-desc {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+
+.tl-tip {
+  background: rgba(232,113,74,0.08);
+  border-left: 3px solid var(--sunset);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.82rem;
+  color: var(--sunset);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.tl-cost {
+  font-size: 0.82rem;
+  color: var(--ocean);
+  font-weight: 600;
+}
+
+/* ===== FOOD SECTION ===== */
+.food-meal-group {
+  margin-bottom: 2.5rem;
+}
+
+.meal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.meal-emoji {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--sunset), var(--sunset-glow));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.meal-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ocean-deep);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.food-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.food-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.food-card.best::before {
+  content: '⭐⭐ BEST';
+  position: absolute;
+  top: 10px;
+  right: -28px;
+  background: var(--sunset);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 30px;
+  transform: rotate(45deg);
+  letter-spacing: 1px;
+}
+
+.food-card.secret::after {
+  content: '🔒 BÍ MẬT';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--night);
+  color: var(--lantern-soft);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.food-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+  padding-right: 2rem;
+}
+
+.food-addr {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.food-note {
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+.food-price {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ocean);
+}
+
+/* ===== BUDGET ===== */
+.budget-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  margin-bottom: 2rem;
+}
+
+.budget-table thead th {
+  background: var(--ocean-deep);
+  color: var(--white);
+  padding: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.5px;
+}
+
+.budget-table tbody td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 0.88rem;
+}
+
+.budget-table tbody tr:last-child td { border-bottom: none; }
+
+.budget-table tbody tr:hover { background: rgba(26,107,138,0.03); }
+
+.budget-category {
+  background: rgba(26,107,138,0.06);
+  font-weight: 700;
+  color: var(--ocean-deep);
+}
+
+.budget-category td { padding: 0.8rem 1rem; font-size: 0.9rem; }
+
+.budget-total {
+  background: linear-gradient(135deg, var(--ocean-deep), var(--ocean));
+}
+
+.budget-total td {
+  color: var(--white) !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 1.2rem 1rem !important;
+}
+
+.amount { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* ===== BOOKING ===== */
+.booking-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.booking-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--ocean-deep);
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.hotel-item {
+  background: linear-gradient(135deg, rgba(26,107,138,0.04), rgba(232,113,74,0.04));
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0,0,0,0.06);
+  transition: transform 0.3s;
+}
+
+.hotel-item:hover { transform: translateY(-2px); }
+
+.hotel-rank {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--sunset);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.3rem;
+}
+
+.hotel-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.hotel-highlight {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 0.4rem;
+}
+
+.hotel-price {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ocean);
+}
+
+/* ===== FLOATING LANTERNS ===== */
+.lantern {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lantern-soft);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  animation: float-lantern 8s ease-in-out infinite;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(45deg) translate(0, 0); }
+  50% { transform: rotate(45deg) translate(5px, 5px); }
+}
+
+@keyframes float-lantern {
+  0% { opacity: 0; transform: translateY(100vh) scale(0.5); }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.4; }
+  100% { opacity: 0; transform: translateY(-20vh) scale(1.2); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: var(--night);
+  color: rgba(255,255,255,0.5);
+  font-size: 0.85rem;
+}
+
+.footer-heart { color: var(--sunset); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.8rem; }
+  .countdown { gap: 0.8rem; }
+  .countdown-item { padding: 0.8rem 1rem; min-width: 70px; }
+  .countdown-num { font-size: 1.8rem; }
+  .nav-tab { padding: 0.9rem 1rem; font-size: 0.82rem; }
+  .section { padding: 2rem 1rem 4rem; }
+  .section-title { font-size: 1.8rem; }
+  .food-grid { grid-template-columns: 1fr; }
+  .hotel-grid { grid-template-columns: 1fr; }
+  .budget-table { font-size: 0.82rem; }
+  .budget-table thead th, .budget-table tbody td { padding: 0.7rem 0.6rem; }
+  .timeline { padding-left: 2rem; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 2.2rem; }
+  .day-pills { gap: 0.5rem; }
+  .day-pill { padding: 0.5rem 1rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING LANTERNS -->
+<div id="lanterns"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Summer Trip · 2026</div>
+    <h1>Đà Nẵng<br>&amp; <em>Hội An</em></h1>
+    <p class="hero-sub">28 – 31 Tháng 5 · 4 ngày 3 đêm · Biển – Núi – Phố cổ</p>
+    <div class="countdown" id="countdown">
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-days">--</div>
+        <div class="countdown-label">Ngày</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-hours">--</div>
+        <div class="countdown-label">Giờ</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-mins">--</div>
+        <div class="countdown-label">Phút</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-num" id="cd-secs">--</div>
+        <div class="countdown-label">Giây</div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <a href="#main">
+        Khám phá lịch trình
+        <span class="scroll-arrow"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-sticky" id="main">
+  <div class="nav-inner">
+    <a class="nav-tab active" data-tab="itinerary">📍 Lịch trình</a>
+    <a class="nav-tab" data-tab="food">🍜 Ăn uống</a>
+    <a class="nav-tab" data-tab="budget">💰 Chi phí</a>
+    <a class="nav-tab" data-tab="booking">🏨 Vé & KS</a>
+  </div>
+</nav>
+
+<!-- TAB: ITINERARY -->
+<div class="section active" id="itinerary">
+  <h2 class="section-title">Lịch trình chi tiết</h2>
+  <p class="section-subtitle">Xe máy khám phá · Hải sản ven biển · Phố cổ lung linh</p>
+
+  <div class="day-pills">
+    <button class="day-pill active" data-day="1">Ngày 1 · 28/5<br><small>Đà Nẵng</small></button>
+    <button class="day-pill" data-day="2">Ngày 2 · 29/5<br><small>Bà Nà Hills</small></button>
+    <button class="day-pill" data-day="3">Ngày 3 · 30/5<br><small>Hội An</small></button>
+    <button class="day-pill" data-day="4">Ngày 4 · 31/5<br><small>Về HCM</small></button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="timeline day-content active" data-day="1">
+    <div class="tl-item" style="animation-delay:0.1s">
+      <div class="tl-card">
+        <span class="tl-time">6–8h</span>
+        <div class="tl-place">✈️ Bay SGN → DAD · Check-in KS Mỹ Khê</div>
+        <div class="tl-desc">Bay sáng sớm ~1h25. Grab từ sân bay về KS khu Mỹ Khê (~150k — lần duy nhất cần Grab). Thuê xe máy ngay tại KS, dùng suốt chuyến.</div>
+        <div class="tl-tip">🏍 Thuê xe máy tại KS · ~100–150k/ngày · Đường ven biển đẹp</div>
+        <div class="tl-cost">~150k Grab sân bay → KS</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.2s">
+      <div class="tl-card">
+        <span class="tl-time">10h</span>
+        <div class="tl-place">🏖 Bãi biển Mỹ Khê</div>
+        <div class="tl-desc">Tắm biển, thuê ghế nằm, uống dừa. Tháng 5 nước trong xanh, sóng nhỏ — mùa đẹp nhất.</div>
+        <div class="tl-tip">☀️ Tránh nắng 11h–14h · Phía bắc bãi vắng hơn</div>
+        <div class="tl-cost">~60k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.3s">
+      <div class="tl-card">
+        <span class="tl-time">Trưa</span>
+        <div class="tl-place">🦐 Hải Sản Gành Bàng</div>
+        <div class="tl-desc">Hải sản bắt tại chỗ, ngoài trời đón gió biển. Thử tôm, mực nướng, cá mú hấp.</div>
+        <div class="tl-tip">📍 Cạnh bãi biển Mỹ Khê</div>
+        <div class="tl-cost">200–350k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.4s">
+      <div class="tl-card">
+        <span class="tl-time">14h</span>
+        <div class="tl-place">🏊 Nghỉ ngơi KS · Tắm hồ bơi</div>
+        <div class="tl-desc">Tránh nắng đỉnh. Chụp ảnh hồ bơi vô cực nếu KS có (A La Carte / HAIAN / Mandila).</div>
+        <div class="tl-tip">📸 Ánh sáng hồ bơi đẹp nhất 15–17h</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.5s">
+      <div class="tl-card">
+        <span class="tl-time">16h</span>
+        <div class="tl-place">🥞 Bánh Xèo Tôm Nhảy Năm Hiền</div>
+        <div class="tl-desc">Tôm sống thả thẳng vào chảo, vỏ mỏng giòn. Đặc sản dân địa phương.</div>
+        <div class="tl-tip">📍 Quận Thanh Khê</div>
+        <div class="tl-cost">50–80k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.6s">
+      <div class="tl-card">
+        <span class="tl-time">17h</span>
+        <div class="tl-place">🌉 Bờ sông Hàn · Cầu Rồng · Cầu Trần Thị Lý</div>
+        <div class="tl-desc">Dạo bờ sông chiều mát, check-in cầu. Ghé chợ Hàn xem trước đặc sản.</div>
+        <div class="tl-tip">⚠️ Thứ 5 chưa có phun lửa</div>
+        <div class="tl-cost">Miễn phí</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.7s">
+      <div class="tl-card">
+        <span class="tl-time">19h</span>
+        <div class="tl-place">🥩 Bê Thui Cầu Mống</div>
+        <div class="tl-desc">Món ĐỘC của Đà Nẵng — thịt bê thui mềm ngọt ăn với bánh tráng, rau sống, mắm nêm.</div>
+        <div class="tl-tip">📍 138 Nguyễn Tri Phương</div>
+        <div class="tl-cost">200–350k/2 người</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="timeline day-content" data-day="2">
+    <div class="tl-item" style="animation-delay:0.1s">
+      <div class="tl-card">
+        <span class="tl-time">7h30</span>
+        <div class="tl-place">🚗 Grab lên Bà Nà Hills</div>
+        <div class="tl-desc">Grab ~30 phút từ KS Mỹ Khê. Đến sớm tránh hàng đợi cáp treo buổi sáng.</div>
+        <div class="tl-tip">🅿️ Gửi xe máy tại bãi trạm cáp treo · Grab lên trạm ~50k</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.2s">
+      <div class="tl-card">
+        <span class="tl-time">8h30</span>
+        <div class="tl-place">🚡 Cáp treo kỷ lục · Cầu Vàng</div>
+        <div class="tl-desc">3 tuyến cáp treo lên đỉnh 1.487m. Check-in Cầu Vàng — bàn tay đá khổng lồ, mây trắng bao quanh.</div>
+        <div class="tl-tip">🧥 Mang áo nhẹ — trên đỉnh mát hơn ~15°C so với ĐN</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.3s">
+      <div class="tl-card">
+        <span class="tl-time">10h</span>
+        <div class="tl-place">🏰 Làng Pháp · Quảng trường L'Indochine</div>
+        <div class="tl-desc">Dạo làng Pháp phong cách châu Âu, chụp ảnh nhà thờ cổ, vườn hoa. Không khí 18–22°C.</div>
+        <div class="tl-tip">❄️ Không khí mát — mang áo thêm</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.4s">
+      <div class="tl-card">
+        <span class="tl-time">12h</span>
+        <div class="tl-place">🍽 Ăn trưa trong khu Bà Nà</div>
+        <div class="tl-desc">Buffet Le Jardin hoặc nhà hàng trong khu. Ăn no vì Fantasy Park chiều cần năng lượng.</div>
+        <div class="tl-cost">300–500k/người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.5s">
+      <div class="tl-card">
+        <span class="tl-time">13h30</span>
+        <div class="tl-place">🎢 Fantasy Park · Le Jardin D'Amour</div>
+        <div class="tl-desc">Fantasy Park trong nhà đầy đủ trò chơi (trong vé). Vườn hoa Le Jardin D'Amour 9 tiểu khu — đẹp cho cặp đôi.</div>
+        <div class="tl-tip">🌸 Le Jardin đẹp nhất lúc 15–16h</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.6s">
+      <div class="tl-card">
+        <span class="tl-time">16h</span>
+        <div class="tl-place">⬇️ Xuống núi · Về KS nghỉ ngơi</div>
+        <div class="tl-desc">Xuống trước 17h tránh đông cáp treo chiều. Grab về KS, tắm rửa nghỉ.</div>
+        <div class="tl-tip">⏰ Xuống trước 17h!</div>
+        <div class="tl-cost">~100–150k Grab</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.7s">
+      <div class="tl-card">
+        <span class="tl-time">19h</span>
+        <div class="tl-place">🍲 Ăn tối nhẹ gần KS</div>
+        <div class="tl-desc">Ăn nhẹ gần KS. Ngủ sớm vì ngày mai dậy sớm đi Hội An.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="timeline day-content" data-day="3">
+    <div class="tl-item" style="animation-delay:0.1s">
+      <div class="tl-card">
+        <span class="tl-time">7h</span>
+        <div class="tl-place">🏍 Xe máy ĐN → Hội An · Cao Lầu Thanh</div>
+        <div class="tl-desc">Tự lái xe máy ~45 phút, đường ven biển rất đẹp. Ăn sáng Cao Lầu Thanh (26 Thái Phiên) — dân địa phương ăn nhất, 20 năm, chỉ 30k/tô.</div>
+        <div class="tl-tip">🛣 Đường ven biển rất đẹp để chụp ảnh</div>
+        <div class="tl-cost">Xăng ~30k/chiều</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.2s">
+      <div class="tl-card">
+        <span class="tl-time">8h30</span>
+        <div class="tl-place">🏛 Phố cổ Hội An · 5 điểm tham quan</div>
+        <div class="tl-desc">Mua vé 120k/người. Chùa Cầu → Hội quán Phúc Kiến → Nhà cổ Tấn Ký → Bảo tàng. Sáng ít đông nhất.</div>
+        <div class="tl-tip">🎟 Vé 120k/người · Đi xong trước 11h</div>
+        <div class="tl-cost">240k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.3s">
+      <div class="tl-card">
+        <span class="tl-time">10h</span>
+        <div class="tl-place">🥞 Bánh Xèo Giếng Bá Lễ · Chè Cô Thưng</div>
+        <div class="tl-desc">Bánh xèo tráng tại chỗ luôn nóng giòn + trà nước giếng đặc biệt. Chè thưng khoai môn chỉ dân HA biết.</div>
+        <div class="tl-tip">🔒 Chè hỏi người địa phương chỉ điểm</div>
+        <div class="tl-cost">50–80k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.4s">
+      <div class="tl-card">
+        <span class="tl-time">11h30</span>
+        <div class="tl-place">🍗 Cơm Gà Bà Buội</div>
+        <div class="tl-desc">Hơn nửa thế kỷ gia truyền. Gà ta chắc dai, cơm nấu nước luộc gà vàng óng. ĐẾN TRƯỚC 12H.</div>
+        <div class="tl-tip">⚠️ 22 Phan Chu Trinh · Đến sớm hết chỗ sau 12h</div>
+        <div class="tl-cost">120–160k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.5s">
+      <div class="tl-card">
+        <span class="tl-time">13h30</span>
+        <div class="tl-place">🚲 Bãi biển An Bàng · Hoàng hôn</div>
+        <div class="tl-desc">Thuê xe đạp (~30–50k/chiếc), đạp ra An Bàng 15 phút. Phía bắc bãi vắng hơn. Hoàng hôn ~18h rất đẹp.</div>
+        <div class="tl-tip">🌅 Hoàng hôn ~18h · Phía bắc bãi đẹp hơn</div>
+        <div class="tl-cost">60–100k xe đạp</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.6s">
+      <div class="tl-card">
+        <span class="tl-time">19h</span>
+        <div class="tl-place">🥟 White Rose + Bánh Đập</div>
+        <div class="tl-desc">White Rose (Bánh Vạc) tại 533 Hai Bà Trưng — cơ sở GỐC duy nhất. Thêm Hoành Thánh Chiên. Bánh Đập Bà Già ở Cẩm Nam.</div>
+        <div class="tl-tip">📍 533 Hai Bà Trưng · ĐÂY LÀ CƠ SỞ GỐC</div>
+        <div class="tl-cost">150–200k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.7s">
+      <div class="tl-card">
+        <span class="tl-time">20h30</span>
+        <div class="tl-place">🏮 Thả đèn hoa đăng · Phố đèn lồng</div>
+        <div class="tl-desc">Bờ Bạch Đằng mua đèn hoa đăng thả trên sông Thu Bồn. Dạo phố cổ lung linh đèn lồng đêm.</div>
+        <div class="tl-cost">Đèn ~15k/cái</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.8s">
+      <div class="tl-card">
+        <span class="tl-time">22h</span>
+        <div class="tl-place">🐉 Về ĐN · Cầu Rồng phun lửa THỨ 7!</div>
+        <div class="tl-desc">Xe máy về ĐN ~35 phút. 30/5 là THỨ 7 — Cầu Rồng phun lửa 21h! Về lúc 20h nếu muốn xem, 22h nếu ưu tiên Hội An.</div>
+        <div class="tl-tip">🔥 30/5 là THỨ 7 · Cầu Rồng phun lửa 21h · Tự chọn!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="timeline day-content" data-day="4">
+    <div class="tl-item" style="animation-delay:0.1s">
+      <div class="tl-card">
+        <span class="tl-time">6h30</span>
+        <div class="tl-place">⛰ Sơn Trà · Chùa Linh Ứng</div>
+        <div class="tl-desc">Lên Sơn Trà sáng sớm trước 8h. Ngắm toàn cảnh ĐN, tượng Phật Bà 67m. Về trước 9h30.</div>
+        <div class="tl-tip">🏍 Tự lái xe máy · Đường đẹp · Dừng chụp ảnh thoải mái</div>
+        <div class="tl-cost">Xăng ~30k</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.2s">
+      <div class="tl-card">
+        <span class="tl-time">Sáng</span>
+        <div class="tl-place">🍜 Bánh Canh Bà Thu (bí mật địa phương)</div>
+        <div class="tl-desc">Chỉ người địa phương biết. Bánh canh xương/cá lóc/chả — bột mềm, nước dùng đậm. Mở 6h–10h.</div>
+        <div class="tl-tip">⚠️ 28 Chu Văn An · Chỉ mở đến 10h</div>
+        <div class="tl-cost">40–60k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.3s">
+      <div class="tl-card">
+        <span class="tl-time">10h</span>
+        <div class="tl-place">🗻 Ngũ Hành Sơn · Hang động & Chùa trong núi</div>
+        <div class="tl-desc">Leo núi đá vôi, thăm hang động và chùa bên trong. ~1.5 tiếng. Mua quà đá mỹ nghệ dưới chân.</div>
+        <div class="tl-cost">Vé 40k + thang máy 15k/lượt/người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.4s">
+      <div class="tl-card">
+        <span class="tl-time">12h</span>
+        <div class="tl-place">🍲 Bún Mắm Vân</div>
+        <div class="tl-desc">Thịt heo quay + mắm nêm bí truyền — công thức độc quyền. Người địa phương ăn hàng ngày.</div>
+        <div class="tl-tip">📍 23/14 Trần Kế Xương · Mở đến 22h</div>
+        <div class="tl-cost">60–80k/2 người</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.5s">
+      <div class="tl-card">
+        <span class="tl-time">13h</span>
+        <div class="tl-place">🛍 Check-out · Mua đặc sản Chợ Hàn</div>
+        <div class="tl-desc">Mua: nước mắm Nam Ô, bánh tráng, khô bò mắm ruốc. Chợ Hàn rẻ hơn sân bay ~30–40%.</div>
+        <div class="tl-tip">💡 Chợ Hàn rẻ hơn sân bay rất nhiều</div>
+      </div>
+    </div>
+    <div class="tl-item" style="animation-delay:0.6s">
+      <div class="tl-card">
+        <span class="tl-time">14h+</span>
+        <div class="tl-place">✈️ Grab sân bay · Bay DAD → SGN</div>
+        <div class="tl-desc">Đặt chuyến 14–17h về HCM. Grab ra sân bay ~20 phút.</div>
+        <div class="tl-tip">🏍 Trả xe máy tại KS · Grab ra sân bay ~100k</div>
+        <div class="tl-cost">Grab sân bay ~100k</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: FOOD -->
+<div class="section" id="food">
+  <h2 class="section-title">Ăn uống theo ngày</h2>
+  <p class="section-subtitle">⭐⭐ Tốt nhất · ⭐ Rất ngon · 🔒 Bí mật địa phương</p>
+
+  <div class="day-pills">
+    <button class="day-pill active" data-food-day="1">Ngày 1 · ĐN</button>
+    <button class="day-pill" data-food-day="2">Ngày 2 · Bà Nà</button>
+    <button class="day-pill" data-food-day="3">Ngày 3 · Hội An</button>
+    <button class="day-pill" data-food-day="4">Ngày 4 · Về</button>
+  </div>
+
+  <!-- FOOD DAY 1 -->
+  <div class="food-day-content active" data-food-day="1">
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌅</div><div class="meal-title">Ăn sáng</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Bún Chả Cá Bà Lữ</div><div class="food-addr">23/14 Trần Kế Xương</div><div class="food-note">Gia truyền 50 năm · Dân địa phương ăn hàng ngày · Chả cá thu tươi</div><div class="food-price">60–80k/2 người</div></div>
+        <div class="food-card"><div class="food-name">Mì Quảng Bà Vị ⭐</div><div class="food-addr">166 Lê Đình Dương</div><div class="food-note">Vị truyền thống đậm đà · Không gian rộng · Lâu năm</div><div class="food-price">60–80k</div></div>
+        <div class="food-card"><div class="food-name">Mì Quảng Bà Mua</div><div class="food-addr">95A Nguyễn Tri Phương</div><div class="food-note">27 năm · Gần sân bay · Nhiều loại mì đa dạng</div><div class="food-price">50–70k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Cuốn Tiến Hưng</div><div class="food-addr">190 Trần Phú</div><div class="food-note">Bánh cuốn mềm mịn + tré, giò lụa, chả bò</div><div class="food-price">40–60k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">☀️</div><div class="meal-title">Ăn trưa</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Hải Sản Gành Bàng</div><div class="food-addr">Cạnh bãi biển Mỹ Khê</div><div class="food-note">Hải sản bắt tại chỗ · Ngoài trời đón gió biển · Giá bình dân</div><div class="food-price">200–350k</div></div>
+        <div class="food-card"><div class="food-name">Cơm Gà A Hải ⭐</div><div class="food-addr">100 Nguyễn Chí Thanh</div><div class="food-note">Cơm gà xối mỡ nổi tiếng 10 năm</div><div class="food-price">120–160k</div></div>
+        <div class="food-card"><div class="food-name">Cơm Gà Hồng Ngọc</div><div class="food-addr">96 Phan Châu Trinh</div><div class="food-note">Dân sinh viên & người địa phương hay ăn</div><div class="food-price">100–140k</div></div>
+        <div class="food-card"><div class="food-name">Ẩm Thực Trần</div><div class="food-addr">109 Nguyễn Chí Thanh</div><div class="food-note">Tổng hợp đặc sản xứ Quảng · KG 700 người</div><div class="food-price">200–350k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🍡</div><div class="meal-title">Ăn vặt chiều</div></div>
+      <div class="food-grid">
+        <div class="food-card best secret"><div class="food-name">Bánh Xèo Tôm Nhảy Năm Hiền</div><div class="food-addr">Quận Thanh Khê</div><div class="food-note">Tôm sống thả vào chảo · Vỏ mỏng giòn · Ít du khách biết</div><div class="food-price">50–80k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Tráng Trộn Bé Ù</div><div class="food-addr">Trung tâm Đà Nẵng</div><div class="food-note">Bánh tráng dừa chấm ruốc · Hương vị tuổi thơ</div><div class="food-price">30–50k</div></div>
+        <div class="food-card"><div class="food-name">Ốc Hút Cây Bàng</div><div class="food-addr">Trung tâm Đà Nẵng</div><div class="food-note">Ngon - bổ - rẻ · Nhiều loại ốc</div><div class="food-price">60–100k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌙</div><div class="meal-title">Ăn tối</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Bê Thui Cầu Mống</div><div class="food-addr">138 Nguyễn Tri Phương</div><div class="food-note">Món ĐỘC Đà Nẵng · Bê thui mềm ngọt · Bánh tráng + mắm nêm</div><div class="food-price">200–350k</div></div>
+        <div class="food-card"><div class="food-name">Hải Sản dọc Mỹ Khê</div><div class="food-addr">Đường Võ Nguyên Giáp</div><div class="food-note">Hải sản tươi · Tôm hùm, mực nướng, ghẹ rang me</div><div class="food-price">300–500k</div></div>
+        <div class="food-card"><div class="food-name">Bún Mắm Vân ⭐</div><div class="food-addr">23/14 Trần Kế Xương</div><div class="food-note">Thịt heo quay + mắm nêm bí truyền · Mở đến 22h</div><div class="food-price">80–120k</div></div>
+        <div class="food-card"><div class="food-name">Bếp Của Ngoại</div><div class="food-addr">136B Yên Bái</div><div class="food-note">Cơm nhà đậm chất miền Trung · Không thích hải sản thì chọn đây</div><div class="food-price">150–250k</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD DAY 2 -->
+  <div class="food-day-content" data-food-day="2">
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌅</div><div class="meal-title">Sáng (trước Bà Nà)</div></div>
+      <div class="food-grid">
+        <div class="food-card"><div class="food-name">Mì Quảng Bà Vị ⭐</div><div class="food-addr">166 Lê Đình Dương</div><div class="food-note">Ăn nhanh trước 7h30 để kịp lên Bà Nà sớm</div><div class="food-price">60–80k</div></div>
+        <div class="food-card"><div class="food-name">Bún Chả Cá Bà Lữ</div><div class="food-addr">23/14 Trần Kế Xương</div><div class="food-note">Nếu chưa thử ngày 1 · Mở sáng sớm</div><div class="food-price">60–80k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Mì / Xôi gần KS</div><div class="food-addr">Khu Mỹ Khê</div><div class="food-note">Ăn nhanh gọn nhất · Nhiều hàng quanh KS</div><div class="food-price">20–40k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">⛰</div><div class="meal-title">Trưa (trong Bà Nà)</div></div>
+      <div class="food-grid">
+        <div class="food-card"><div class="food-name">Buffet Le Jardin d'Amour ⭐</div><div class="food-addr">Trong khu Bà Nà Hills</div><div class="food-note">Sang nhất · View đẹp · Đa dạng món</div><div class="food-price">300–500k/ng</div></div>
+        <div class="food-card"><div class="food-name">Nhà hàng La Croisette</div><div class="food-addr">Trong khu Bà Nà Hills</div><div class="food-note">Phong cách châu Âu · Nằm trong làng Pháp</div><div class="food-price">200–350k/ng</div></div>
+        <div class="food-card"><div class="food-name">Cơm hộp / ăn nhanh</div><div class="food-addr">Các quầy trong Bà Nà</div><div class="food-note">Tiết kiệm nhất · Dành thời gian tham quan</div><div class="food-price">100–150k/ng</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌙</div><div class="meal-title">Tối (sau Bà Nà)</div></div>
+      <div class="food-grid">
+        <div class="food-card"><div class="food-name">Bê Thui Cầu Mống ⭐</div><div class="food-addr">138 Nguyễn Tri Phương</div><div class="food-note">Nếu ngày 1 chưa ăn · Nên thử trước khi về</div><div class="food-price">200–350k</div></div>
+        <div class="food-card"><div class="food-name">Cháo Sườn Sụn Bé Bi</div><div class="food-addr">Trung tâm Đà Nẵng</div><div class="food-note">Ăn nhẹ sau ngày dài · Cháo mịn thơm</div><div class="food-price">60–100k</div></div>
+        <div class="food-card"><div class="food-name">Hải Sản gần KS Mỹ Khê</div><div class="food-addr">Khu Mỹ Khê</div><div class="food-note">Ăn gần KS tiện ngủ sớm</div><div class="food-price">200–350k</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD DAY 3 -->
+  <div class="food-day-content" data-food-day="3">
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌅</div><div class="meal-title">Ăn sáng</div></div>
+      <div class="food-grid">
+        <div class="food-card best secret"><div class="food-name">Cao Lầu Thanh</div><div class="food-addr">26 Thái Phiên, Hội An</div><div class="food-note">Dân địa phương ăn nhất · 20 năm · Sợi ngâm nước tro truyền thống</div><div class="food-price">60–100k</div></div>
+        <div class="food-card"><div class="food-name">Cao Lầu Liên ⭐</div><div class="food-addr">Phố cổ Hội An</div><div class="food-note">Lâu đời · Hương vị truyền thống</div><div class="food-price">50–80k</div></div>
+        <div class="food-card"><div class="food-name">Mì Quảng Ông Hai</div><div class="food-addr">533 Hai Bà Trưng</div><div class="food-note">Vừa mì Quảng vừa Cao Lầu</div><div class="food-price">60–90k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Mì Madam Khánh</div><div class="food-addr">115 Trần Cao Vân</div><div class="food-note">Gia truyền 40 năm · Pate nhà làm · Nhân đầy ắp</div><div class="food-price">40–70k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🍡</div><div class="meal-title">Ăn vặt phố cổ</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Bánh Xèo Giếng Bá Lễ</div><div class="food-addr">Gần giếng Bá Lễ, phố cổ</div><div class="food-note">Bánh luôn nóng giòn · Trà nước giếng nổi tiếng</div><div class="food-price">40–60k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Bèo Bà Bảy ⭐</div><div class="food-addr">51 Trần Hưng Đạo</div><div class="food-note">Bánh mềm mướt + ram khô chiên giòn</div><div class="food-price">30–50k</div></div>
+        <div class="food-card best secret"><div class="food-name">Chè Cô Thưng</div><div class="food-addr">Gánh lưu động · hỏi dân ĐP</div><div class="food-note">Chỉ dân Hội An biết · Khoai môn sáp dẻo · Ngọt thanh</div><div class="food-price">20–30k</div></div>
+        <div class="food-card secret"><div class="food-name">Chè Xí Mà Phù</div><div class="food-addr">Đường Nguyễn Trường Tộ</div><div class="food-note">Gánh chè lâu đời · Mè đen thảo mộc · Thanh nhiệt</div><div class="food-price">15–25k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">☀️</div><div class="meal-title">Ăn trưa</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Cơm Gà Bà Buội</div><div class="food-addr">22 Phan Chu Trinh</div><div class="food-note">Nửa thế kỷ gia truyền · Gà ta chắc dai · ĐẾN TRƯỚC 12H</div><div class="food-price">120–160k</div></div>
+        <div class="food-card"><div class="food-name">Cơm Gà Anh Xí ⭐</div><div class="food-addr">98/1 Nguyễn Tri Phương</div><div class="food-note">Thay thế nếu Bà Buội hết chỗ · Gà ngọt tự nhiên</div><div class="food-price">100–140k</div></div>
+        <div class="food-card"><div class="food-name">Mì Quảng Ba Xùy ⭐</div><div class="food-addr">34 Phan Châu Trinh</div><div class="food-note">Sợi mì thủ công cắt tay · Trước chỉ dân ĐP biết</div><div class="food-price">80–120k</div></div>
+        <div class="food-card"><div class="food-name">Nhà Hàng Năm Giã</div><div class="food-addr">22 Phan Chu Trinh</div><div class="food-note">Hải sản tươi từ bể nuôi · Nếu muốn hải sản Hội An</div><div class="food-price">200–350k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌙</div><div class="meal-title">Ăn tối</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">White Rose (Bánh Vạc)</div><div class="food-addr">533 Hai Bà Trưng — CƠ SỞ GỐC</div><div class="food-note">1 gia đình độc quyền · Ăn tại gốc ngon nhất · Thêm Hoành Thánh Chiên</div><div class="food-price">100–150k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Đập Bà Già ⭐</div><div class="food-addr">Thôn 1, xã Cẩm Nam</div><div class="food-note">Bánh đập + hến xào thơm đậm</div><div class="food-price">80–130k</div></div>
+        <div class="food-card"><div class="food-name">Cơm Linh (cơm nhà)</div><div class="food-addr">Phố cổ Hội An</div><div class="food-note">Mì Quảng, cơm gà xé · Như cơm nhà</div><div class="food-price">100–160k</div></div>
+        <div class="food-card"><div class="food-name">Hải Sản bãi An Bàng</div><div class="food-addr">Dọc bãi An Bàng</div><div class="food-note">Hải sản tươi ngay bờ biển · Giá bình dân</div><div class="food-price">200–400k</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOD DAY 4 -->
+  <div class="food-day-content" data-food-day="4">
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">🌅</div><div class="meal-title">Ăn sáng</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Bánh Mì Phượng</div><div class="food-addr">2B Phan Châu Trinh, Hội An</div><div class="food-note">Anthony Bourdain khen ngợi · Đến trước 7h30 tránh xếp hàng</div><div class="food-price">50–70k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Mì Madam Khánh ⭐</div><div class="food-addr">115 Trần Cao Vân</div><div class="food-note">Gia truyền 40 năm · Pate nhà làm</div><div class="food-price">40–70k</div></div>
+        <div class="food-card"><div class="food-name">Cơm Gà Bà Buội (sáng)</div><div class="food-addr">22 Phan Chu Trinh</div><div class="food-note">Nếu ngày 3 chưa ăn thì thử ngay</div><div class="food-price">60–80k</div></div>
+      </div>
+    </div>
+    <div class="food-meal-group">
+      <div class="meal-header"><div class="meal-emoji">☀️</div><div class="meal-title">Ăn trưa (ĐN)</div></div>
+      <div class="food-grid">
+        <div class="food-card best"><div class="food-name">Bún Mắm Vân</div><div class="food-addr">23/14 Trần Kế Xương</div><div class="food-note">Thịt heo quay + mắm nêm bí truyền · Mở đến 22h</div><div class="food-price">60–80k</div></div>
+        <div class="food-card"><div class="food-name">Bánh Canh Bà Thu 🔒</div><div class="food-addr">28 Chu Văn An</div><div class="food-note">Chỉ dân ĐP biết · Bột mềm, nước dùng đậm · Mở đến 10h</div><div class="food-price">40–60k</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAB: BUDGET -->
+<div class="section" id="budget">
+  <h2 class="section-title">Chi phí ước tính</h2>
+  <p class="section-subtitle">Cho 2 người · Giá tham khảo có thể thay đổi</p>
+
+  <table class="budget-table">
+    <thead>
+      <tr><th>Hạng mục</th><th class="amount">Thấp (VNĐ)</th><th class="amount">Cao (VNĐ)</th></tr>
+    </thead>
+    <tbody>
+      <tr class="budget-category"><td colspan="3">✈️ VÉ MÁY BAY</td></tr>
+      <tr><td>Vé đi SGN → DAD (2 người)</td><td class="amount">3,000,000</td><td class="amount">3,600,000</td></tr>
+      <tr><td>Vé về DAD → SGN (2 người)</td><td class="amount">3,000,000</td><td class="amount">3,600,000</td></tr>
+
+      <tr class="budget-category"><td colspan="3">🏨 KHÁCH SẠN MỸ KHÊ · 3 ĐÊM</td></tr>
+      <tr><td>Đêm 1 (28/5)</td><td class="amount">1,200,000</td><td class="amount">2,200,000</td></tr>
+      <tr><td>Đêm 2 (29/5)</td><td class="amount">1,200,000</td><td class="amount">2,200,000</td></tr>
+      <tr><td>Đêm 3 (30/5)</td><td class="amount">1,200,000</td><td class="amount">2,200,000</td></tr>
+
+      <tr class="budget-category"><td colspan="3">🎟 VÉ THAM QUAN</td></tr>
+      <tr><td>Vé Bà Nà Hills (2 người)</td><td class="amount">1,700,000</td><td class="amount">2,000,000</td></tr>
+      <tr><td>Ăn trưa tại Bà Nà (2 người)</td><td class="amount">600,000</td><td class="amount">1,000,000</td></tr>
+      <tr><td>Vé Ngũ Hành Sơn (2 người)</td><td class="amount">110,000</td><td class="amount">110,000</td></tr>
+      <tr><td>Vé phố cổ Hội An (2 người)</td><td class="amount">240,000</td><td class="amount">240,000</td></tr>
+
+      <tr class="budget-category"><td colspan="3">🍜 ĂN UỐNG · 4 NGÀY</td></tr>
+      <tr><td>Ngày 1 · Đà Nẵng</td><td class="amount">450,000</td><td class="amount">780,000</td></tr>
+      <tr><td>Ngày 2 · Bà Nà Hills</td><td class="amount">700,000</td><td class="amount">1,250,000</td></tr>
+      <tr><td>Ngày 3 · Hội An</td><td class="amount">450,000</td><td class="amount">700,000</td></tr>
+      <tr><td>Ngày 4 · Về HCM</td><td class="amount">200,000</td><td class="amount">400,000</td></tr>
+
+      <tr class="budget-category"><td colspan="3">🏍 DI CHUYỂN</td></tr>
+      <tr><td>Thuê xe máy 3 ngày</td><td class="amount">300,000</td><td class="amount">450,000</td></tr>
+      <tr><td>Xăng xe máy 4 ngày</td><td class="amount">80,000</td><td class="amount">150,000</td></tr>
+      <tr><td>Grab: Sân bay → KS</td><td class="amount">150,000</td><td class="amount">200,000</td></tr>
+      <tr><td>Grab: Bà Nà lên/xuống</td><td class="amount">100,000</td><td class="amount">150,000</td></tr>
+      <tr><td>Grab: Sân bay về (31/5)</td><td class="amount">100,000</td><td class="amount">150,000</td></tr>
+
+      <tr class="budget-category"><td colspan="3">🛍 MUA SẮM & KHÁC</td></tr>
+      <tr><td>Đặc sản mang về</td><td class="amount">300,000</td><td class="amount">700,000</td></tr>
+      <tr><td>Đèn hoa đăng + ăn vặt lẻ</td><td class="amount">100,000</td><td class="amount">200,000</td></tr>
+      <tr><td>Dự phòng</td><td class="amount">500,000</td><td class="amount">1,000,000</td></tr>
+
+      <tr class="budget-total">
+        <td>TỔNG CỘNG (2 NGƯỜI)</td>
+        <td class="amount" id="total-low"></td>
+        <td class="amount" id="total-high"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- TAB: BOOKING -->
+<div class="section" id="booking">
+  <h2 class="section-title">Vé & Khách sạn</h2>
+  <p class="section-subtitle">Thông tin đặt vé và gợi ý khách sạn tốt nhất cho chụp ảnh</p>
+
+  <div class="booking-card">
+    <h3>✈️ Vé máy bay</h3>
+    <table class="budget-table" style="margin-bottom:1.5rem">
+      <thead><tr><th>Chiều</th><th>Tuyến</th><th>Ngày</th><th>Giá tham khảo/người</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Đi</strong></td><td>SGN → DAD</td><td>Thứ 5, 28/5/2026</td><td>~1.5–1.8tr/chiều</td></tr>
+        <tr><td><strong>Về</strong></td><td>DAD → SGN</td><td>CN, 31/5/2026</td><td>~1.5–1.8tr/chiều</td></tr>
+      </tbody>
+    </table>
+    <div class="food-grid" style="margin-bottom:0">
+      <div class="food-card"><div class="food-name">Vietnam Airlines</div><div class="food-note">Dịch vụ tốt nhất · Quicksales App giảm thêm</div><div class="food-price">~1.5–1.8tr/chiều/người</div></div>
+      <div class="food-card"><div class="food-name">Vietjet Air</div><div class="food-note">MoMo Travel không phí ẩn · Bảo hiểm trễ 35k</div><div class="food-price">~1.3–1.6tr/chiều/người</div></div>
+      <div class="food-card"><div class="food-name">Bamboo Airways</div><div class="food-note">Đôi khi có flash sale · Check Google Flights</div><div class="food-price">~1.4–1.7tr/chiều/người</div></div>
+    </div>
+  </div>
+
+  <div class="booking-card">
+    <h3>🏨 Gợi ý KS Mỹ Khê · Đặc biệt tốt cho chụp ảnh</h3>
+    <div class="hotel-grid">
+      <div class="hotel-item">
+        <div class="hotel-rank">★★ Tốt nhất chụp ảnh</div>
+        <div class="hotel-name">A La Carte Da Nang Beach</div>
+        <div class="hotel-highlight">Infinity pool ĐẦU TIÊN VN có kính trong suốt · View biển Mỹ Khê · Ảnh MXH nổi tiếng nhất ĐN</div>
+        <div class="hotel-price">1.5tr–2.5tr/đêm</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-rank">★★ Tốt nhất chụp ảnh</div>
+        <div class="hotel-name">HAIAN Beach Hotel & Spa</div>
+        <div class="hotel-highlight">Hồ bơi vô cực view biển · Nổi tiếng "bữa sáng dưới nước" · 278 Võ Nguyên Giáp</div>
+        <div class="hotel-price">1.5tr–2.8tr/đêm</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-rank">★★ Top chụp ảnh</div>
+        <div class="hotel-name">Mandila Beach Hotel</div>
+        <div class="hotel-highlight">Rooftop pool view Sơn Trà + biển · Tầm nhìn 360° · Ít đông · Giá tốt hơn</div>
+        <div class="hotel-price">1.2tr–2.2tr/đêm</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-rank">Tầm trung</div>
+        <div class="hotel-name">Brilliant Hotel Da Nang</div>
+        <div class="hotel-highlight">Pool tầng thượng · View biển · Nhiều góc check-in · 4 sao</div>
+        <div class="hotel-price">900k–1.5tr/đêm</div>
+      </div>
+      <div class="hotel-item">
+        <div class="hotel-rank">Cao cấp</div>
+        <div class="hotel-name">Hyatt Regency Da Nang</div>
+        <div class="hotel-highlight">Bãi biển riêng 180m · Pool dài · Resort rộng · 5 sao · Xa trung tâm ~5km</div>
+        <div class="hotel-price">3tr–7tr/đêm</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="booking-card">
+    <h3>📱 Nền tảng đặt vé & phòng</h3>
+    <div class="food-grid">
+      <div class="food-card"><div class="food-name">Google Flights</div><div class="food-note">★ Dùng ĐẦU TIÊN để so sánh giá tất cả hãng · Theo dõi giá</div><div class="food-addr">flights.google.com</div></div>
+      <div class="food-card"><div class="food-name">MoMo Travel</div><div class="food-note">★ Không phụ phí ẩn · Hoàn vé nhanh · Bảo hiểm trễ 35k → 500k</div><div class="food-addr">momo.vn</div></div>
+      <div class="food-card"><div class="food-name">Google Hotels</div><div class="food-note">★ So sánh Agoda + Booking + Traveloka cùng lúc</div><div class="food-addr">google.com/travel/hotels</div></div>
+      <div class="food-card"><div class="food-name">Booking.com</div><div class="food-note">Hủy miễn phí · Trả tại KS · Uy tín</div><div class="food-addr">booking.com</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>Đà Nẵng – Hội An · 28–31/5/2026 · Made with <span class="footer-heart">♥</span></p>
+</footer>
+
+<script>
+// Countdown
+function updateCountdown() {
+  const target = new Date('2026-05-28T06:00:00+07:00');
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '🎉';
+    document.getElementById('cd-hours').textContent = '';
+    document.getElementById('cd-mins').textContent = '';
+    document.getElementById('cd-secs').textContent = '';
+    return;
+  }
+
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  const s = Math.floor((diff % 60000) / 1000);
+
+  document.getElementById('cd-days').textContent = d;
+  document.getElementById('cd-hours').textContent = h;
+  document.getElementById('cd-mins').textContent = m;
+  document.getElementById('cd-secs').textContent = s;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Nav tabs
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById(tab.dataset.tab).classList.add('active');
+  });
+});
+
+// Day pills - Itinerary
+document.querySelectorAll('.day-pill[data-day]').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.day-pill[data-day]').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.day-content[data-day]').forEach(c => c.classList.remove('active'));
+    pill.classList.add('active');
+    document.querySelector(`.day-content[data-day="${pill.dataset.day}"]`).classList.add('active');
+  });
+});
+
+// Day pills - Food
+document.querySelectorAll('.day-pill[data-food-day]').forEach(pill => {
+  pill.addEventListener('click', () => {
+    document.querySelectorAll('.day-pill[data-food-day]').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.food-day-content').forEach(c => c.classList.remove('active'));
+    pill.classList.add('active');
+    document.querySelector(`.food-day-content[data-food-day="${pill.dataset.foodDay}"]`).classList.add('active');
+  });
+});
+
+// Budget totals
+const lowAmounts = document.querySelectorAll('.budget-table tbody td.amount:nth-child(2)');
+const highAmounts = document.querySelectorAll('.budget-table tbody td.amount:nth-child(3)');
+let totalLow = 0, totalHigh = 0;
+
+lowAmounts.forEach(td => {
+  const val = parseInt(td.textContent.replace(/,/g, ''));
+  if (!isNaN(val)) totalLow += val;
+});
+
+highAmounts.forEach(td => {
+  const val = parseInt(td.textContent.replace(/,/g, ''));
+  if (!isNaN(val)) totalHigh += val;
+});
+
+document.getElementById('total-low').textContent = totalLow.toLocaleString();
+document.getElementById('total-high').textContent = totalHigh.toLocaleString();
+
+// Floating lanterns
+const lanternContainer = document.getElementById('lanterns');
+for (let i = 0; i < 12; i++) {
+  const lantern = document.createElement('div');
+  lantern.className = 'lantern';
+  lantern.style.left = Math.random() * 100 + '%';
+  lantern.style.animationDelay = Math.random() * 8 + 's';
+  lantern.style.animationDuration = (6 + Math.random() * 6) + 's';
+  lanternContainer.appendChild(lantern);
+}
+</script>
+</body>
+</html>
