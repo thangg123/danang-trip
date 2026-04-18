@@ -864,40 +864,6 @@ body::after {
   transform: translateY(0);
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  text-align: center;
-  padding: 3.5rem 1.5rem;
-  padding-bottom: calc(3.5rem + env(safe-area-inset-bottom));
-  background: var(--night);
-  color: rgba(255,255,255,0.4);
-  font-size: 0.82rem;
-  letter-spacing: 0.3px;
-  position: relative;
-  overflow: hidden;
-}
-
-.footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--sunset), transparent);
-  border-radius: 2px;
-}
-
-.footer-heart { color: var(--sunset); }
-
-.footer p {
-  font-family: 'Be Vietnam Pro', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  letter-spacing: 0.5px;
-}
-
 /* ===== RESPONSIVE — TABLET ===== */
 @media (max-width: 768px) {
   .nav-tab { padding: 1rem 1.1rem; font-size: 0.82rem; }
@@ -1015,8 +981,6 @@ body::after {
   .hotel-highlight { font-size: 0.78rem; }
   .hotel-price { font-size: 0.82rem; }
 
-  .footer { padding: 2.5rem 1rem; font-size: 0.78rem; }
-  .footer p { font-size: 0.9rem; }
 }
 
 /* ===== RESPONSIVE — VERY SMALL ===== */
@@ -1698,11 +1662,6 @@ body::after {
   </div>
 
 </div>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <p>Đà Nẵng – Hội An · 28–31/5/2026 · Made with <span class="footer-heart">♥</span></p>
-</footer>
 
 <script>
 // Countdown
